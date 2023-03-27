@@ -28,17 +28,24 @@ import { MatButtonModule } from '@angular/material/button';
 const appRoutes: Routes = [
   
   {
-    path: '',
+    path: 'login',
     component: LoginLayoutComponent,
     children: [
       {
-        path: 'login',
+        path: '',
         component: LoginComponent
       }
     ]
   },
-  { path: '', redirectTo: '/login', pathMatch:'full' },
-  { path: 'users', loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule) },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'users', 
+  component:MainLayoutComponent,
+  children:[{
+    path:'',
+    loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule)
+  }]
+
+},
   { path: '**', redirectTo: 'login' }
 
 ];
