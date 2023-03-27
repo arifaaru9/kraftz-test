@@ -1,0 +1,79 @@
+<section *ngIf="user" style="margin-top: 5%;">
+  <h2 style="color: darkgrey; margin: 2%;">Please Enter Employee Details</h2>
+  <mat-card>
+    <form [formGroup]="userForm">
+      <div style="display: flex; justify-content: space-around;">
+        <mat-form-field >
+          <mat-label>Id</mat-label>
+          <input matInput  autofocus formControlName="id">
+          <mat-error *ngIf="userForm.controls['id'].value === ''">Please fill valid Id</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput  formControlName="name">
+          <mat-error *ngIf="userForm.controls['name'].value === ''">Please fill valid Name</mat-error>
+
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Tasks</mat-label>
+          <input matInput placeholder="" formControlName="tasks">
+          <mat-error *ngIf="userForm.controls['tasks'].value === ''">Please fill Task Name</mat-error>
+
+        </mat-form-field>
+      </div>
+     
+    
+      <div style="display: flex; justify-content: space-around;">
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="" type="email" formControlName="email">
+          <mat-error *ngIf="userForm.controls['email'].value === ''">Please fill valid Email Id</mat-error>
+
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Department</mat-label>
+          <!-- <input matInput placeholder="" [(ngModel)]="user.department"> -->
+          <mat-select formControlName="department">
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Salary</mat-label>
+          <input matInput placeholder="" formControlName="salary">
+          <mat-error *ngIf="userForm.controls['salary'].value === ''">Please fill Salary </mat-error>
+
+        </mat-form-field>
+    
+      </div>
+    </form>
+  <!-- <mat-card-content>Please Enter Employee Details</mat-card-content> -->
+  
+</mat-card>
+ 
+
+  <!-- <div>
+    <mat-form-field>
+      <input matInput placeholder="Tasks" [(ngModel)]="user.tasks">
+    </mat-form-field>
+  </div> -->
+  <!-- <div>
+    <mat-form-field>
+      <input matInput placeholder="Phone" [(ngModel)]="user.phone">
+    </mat-form-field>
+  </div> -->
+</section>
+
+<section *ngIf="user" style="display: flex;justify-content: end; margin-top: 4%;">
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="userForm.invalid">
+    <mat-icon>done</mat-icon> Save
+  </button>
+    <button *ngIf="editMode == 0" mat-button routerLink="/users">
+      Cancel
+    </button>
+    <button *ngIf="editMode == 1" mat-button routerLink="/users/details/{{user.id}}">
+      Cancel
+    </button>
+</section>

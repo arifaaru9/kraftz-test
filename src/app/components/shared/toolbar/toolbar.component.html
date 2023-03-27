@@ -1,0 +1,21 @@
+  <mat-toolbar color="accent" style="justify-content: space-between;">
+    <!--Sidenav menu button-->
+    <div style="display: flex;align-items: center;">
+      <button mat-icon-button (click)="onToggleMenu()">
+        <mat-icon aria-label="Toggle menu">menu</mat-icon>
+      </button>
+      
+    
+      <!--Title-->
+      <span class="app-title">{{ header }}</span>
+    </div>
+  
+    <button mat-icon-button  (click)="navigateToLogin()"><mat-icon>power_settings_new</mat-icon></button>
+
+    
+  
+
+  </mat-toolbar>
+ <div style="display: flex; justify-content: end;">
+  <small>Last Updated On: {{lastLoginDate |  date: 'shortTime'}}</small>
+ </div>

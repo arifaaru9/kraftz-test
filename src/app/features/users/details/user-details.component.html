@@ -1,0 +1,84 @@
+<button mat-raised-button routerLink="/users">
+  <mat-icon>arrow_back</mat-icon> Back to list
+</button>
+<button mat-raised-button routerLink="/users/edit/{{user?.id}}">
+  <mat-icon aria-label="Edit">edit</mat-icon>
+</button>
+<!-- <button mat-raised-button color="warn" (click)="onDelete()">
+  <mat-icon aria-label="Delete">delete</mat-icon>
+</button> -->
+
+<h2 style="color: darkgrey; margin: 2%;">Detail View Of Employee data</h2>
+<section *ngIf="user" class="margin-top-10" style="margin: 5%;">
+  <!-- <mat-card>
+    <mat-card-title style="margin-left:10px ;">User Name: &nbsp;&nbsp;{{ user.name | titlecase }}</mat-card-title>
+    <mat-card-content>
+      <dl class="dl-horizontal" style="display: flex;">
+        <dt>Id:</dt>
+        <dd>{{ user.id }}</dd>&nbsp;
+        <dt>Name:</dt>
+        <dd>{{ user.name }}</dd>&nbsp;
+        <dt>Email:</dt>
+        <dd>{{ user.email }}</dd>&nbsp;
+        <dt>Tasks:</dt>
+        <dd>{{ user.task }}</dd>&nbsp;
+        <dt>Department:</dt>
+        <dd>{{ user.department }}</dd>&nbsp;
+        <dt>Salary:</dt>
+        <dd>{{ user.salary }}</dd>
+      </dl>
+    </mat-card-content>
+  </mat-card> -->
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title style="margin-left:10px ;">User Name: &nbsp;&nbsp;{{ user.name | titlecase }}</mat-card-title>
+      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <dl class="dl-horizontal" style="display: flex;">
+        <dt>Id:</dt>
+        <dd>{{ user.id }}</dd>&nbsp;
+        <dt>Name:</dt>
+        <dd>{{ user.name }}</dd>&nbsp;
+        <dt>Email:</dt>
+        <dd>{{ user.email }}</dd>&nbsp;
+        <dt>Tasks:</dt>
+        <dd>{{ user.task }}</dd>&nbsp;
+        <dt>Department:</dt>
+        <dd>{{ user.department }}</dd>&nbsp;
+        <dt>Salary:</dt>
+        <dd>{{ user.salary }}</dd>
+      </dl>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+  
+</section>
+
+<!-- <section *ngIf="user">
+    <mat-card>
+        <mat-card-title>Company</mat-card-title>
+        <mat-card-content>
+          <dl class="dl-horizontal">
+            <dt>Company name</dt>
+            <dd>{{ user.company.name }}</dd>
+
+            <dt>Additional data</dt>
+            <dd>{{ user.company.catchPhrase }}</dd>
+
+            <dt>Product search type
+              </dt>
+            <dd>{{ user.company.bs }}</dd>
+          </dl>
+        </mat-card-content>
+      </mat-card>
+</section> -->
+
+<button mat-fab class="fixed-bottom-right" style="position: relative; float: right;" routerLink="/users/edit/{{user?.id}}">
+  <mat-icon aria-label="Edit">edit</mat-icon>
+</button>
